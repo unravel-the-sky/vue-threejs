@@ -33,10 +33,10 @@ export default {
   },
   methods: {
     init() {
-      this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);
-      this.camera.position.z = 1;
+      this.camera = new THREE.PerspectiveCamera(70, this.width / this.height, 0.01, 1000);
+      this.camera.position.z = 100;
 
-      this.geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+      this.geometry = new THREE.BoxGeometry(50, 10, 50);
       this.material = new THREE.MeshNormalMaterial();
 
       this.mesh = new THREE.Mesh(this.geometry, this.material);
@@ -57,6 +57,7 @@ export default {
 
         this.mesh.rotation.x += 0.01;
         this.mesh.rotation.y += 0.02;
+        this.mesh.rotation.z += 0.01;
 
         this.renderer.render(scene, this.camera)
     }
